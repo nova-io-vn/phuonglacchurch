@@ -1,0 +1,10 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs/promises';
+await fs.mkdir('docs/screenshots',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl']});
+const page=await browser.newPage({viewport:{width:1440,height:960},deviceScaleFactor:1});
+const errors=[];page.on('pageerror',e=>errors.push(e.message));page.on('console',m=>{if(m.type()==='error')errors.push(m.text());});
+await page.goto('http://localhost:5173');await page.waitForFunction(()=>window.__app,{timeout:90000});await page.waitForTimeout(1800);
+await page.screenshot({path:'docs/screenshots/01-overview-day.png'});
+console.log(JSON.stringify({errors,stats:await page.evaluate(()=>window.__app.stats())},null,2));
+await browser.close();

@@ -1,0 +1,257 @@
+{
+  "date": "2026-11-15T05:48:31.938Z",
+  "base": "http://localhost:5173",
+  "checks": [
+    {
+      "name": "Canvas fills viewport",
+      "pass": true
+    },
+    {
+      "name": "Parish identity is Phương Lạc",
+      "pass": true
+    },
+    {
+      "name": "Four blocks of ten congregation benches",
+      "pass": true
+    },
+    {
+      "name": "Map coordinates match supplied pin",
+      "pass": true
+    },
+    {
+      "name": "Evening button sets lit night scene",
+      "pass": true
+    },
+    {
+      "name": "Morning button restores daylight",
+      "pass": true
+    },
+    {
+      "name": "Pointer lock works",
+      "pass": true
+    },
+    {
+      "name": "W moves first-person camera",
+      "pass": true
+    },
+    {
+      "name": "E opens actual hinged center door",
+      "pass": true
+    },
+    {
+      "name": "Unbroken entry route reaches sanctuary steps",
+      "pass": true
+    },
+    {
+      "name": "Side wall blocks walking",
+      "pass": true
+    },
+    {
+      "name": "Pews block walking",
+      "pass": true
+    },
+    {
+      "name": "Columns block walking",
+      "pass": true
+    },
+    {
+      "name": "Rear wall blocks walking",
+      "pass": true
+    },
+    {
+      "name": "Stairs raise floor in discrete treads",
+      "pass": true
+    },
+    {
+      "name": "Closed door blocks and open door clears center",
+      "pass": true
+    },
+    {
+      "name": "Left arm connects to nave without a wall",
+      "pass": true
+    },
+    {
+      "name": "Choir is on raised left-arm floor",
+      "pass": true
+    },
+    {
+      "name": "All four side circulation routes stay clear",
+      "pass": true
+    },
+    {
+      "name": "Pond water blocks walking and bridge has a floor",
+      "pass": true
+    },
+    {
+      "name": "M opens map",
+      "pass": true
+    },
+    {
+      "name": "All ten guided stops reached",
+      "pass": true
+    },
+    {
+      "name": "Tour stays clear of side walls",
+      "pass": true
+    },
+    {
+      "name": "Pause button changes tour state",
+      "pass": true
+    },
+    {
+      "name": "Previous stop works",
+      "pass": true
+    },
+    {
+      "name": "Tour exits to orbit",
+      "pass": true
+    },
+    {
+      "name": "PNG capture exports",
+      "pass": true
+    },
+    {
+      "name": "Help opens an accessible dialog",
+      "pass": true
+    },
+    {
+      "name": "Static batching stays under 100 submitted calls",
+      "pass": true
+    },
+    {
+      "name": "Tablet gets touch movement controls",
+      "pass": true
+    },
+    {
+      "name": "Responsive toolbar stays in viewport",
+      "pass": true
+    },
+    {
+      "name": "Mobile camera fits the architecture",
+      "pass": true
+    },
+    {
+      "name": "No browser errors",
+      "pass": true
+    },
+    {
+      "name": "No missing assets",
+      "pass": true
+    }
+  ],
+  "collision": {
+    "entry": {
+      "x": 0,
+      "z": -16.99999999999977,
+      "y": 2.28
+    },
+    "wallX": 10.399999999999979,
+    "pewZ": 12.000000000000004,
+    "pillarZ": 14.799999999999992,
+    "rearZ": -23.40000000000002,
+    "stair": [
+      0,
+      0.15000000000000002,
+      0.3,
+      0.44999999999999996,
+      0.6,
+      0.6
+    ],
+    "closed": true,
+    "open": true,
+    "arm": {
+      "x": -10.000000000000007,
+      "z": -12.000000000000004
+    },
+    "choirFloor": 0.76,
+    "choirPews": 6,
+    "sideAisles": [
+      {
+        "x": -10,
+        "z": -6.700000000000014
+      },
+      {
+        "x": -6.15,
+        "z": -6.700000000000014
+      },
+      {
+        "x": 6.15,
+        "z": -6.700000000000014
+      },
+      {
+        "x": 10,
+        "z": -6.700000000000014
+      }
+    ]
+  },
+  "tourResult": [
+    {
+      "stop": 0,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 0
+    },
+    {
+      "stop": 1,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 2,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 3,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 4,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 5,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 6,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 0
+    },
+    {
+      "stop": 7,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 8,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 100
+    },
+    {
+      "stop": 9,
+      "arrived": true,
+      "insideWall": false,
+      "minDoorClearance": 0
+    }
+  ],
+  "stats": {
+    "calls": 83,
+    "triangles": 941200,
+    "geometries": 49,
+    "textures": 37
+  },
+  "errors": [],
+  "missing": []
+}

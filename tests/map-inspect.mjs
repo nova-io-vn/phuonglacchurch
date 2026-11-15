@@ -1,0 +1,2 @@
+﻿import {chromium} from '@playwright/test';
+const b=await chromium.launch({channel:'chrome',headless:true});const p=await b.newPage({viewport:{width:1440,height:1000}});await p.goto('https://www.google.com/maps/@20.0535772,106.1909127,221m/data=!3m1!1e3',{waitUntil:'domcontentloaded',timeout:60000});await p.waitForTimeout(8000);await p.screenshot({path:'docs/screenshots/maps-context.png'});console.log((await p.locator('body').innerText()).slice(0,7000));await b.close();

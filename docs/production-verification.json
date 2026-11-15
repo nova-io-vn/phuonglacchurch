@@ -1,0 +1,12 @@
+{
+  "productionURL": "http://localhost:4173",
+  "checks": [
+    "Production loads",
+    "Production WASD movement",
+    "Production ESC unlock",
+    "Overview screenshot",
+    "Neutral massing review front and 3/4",
+    "No errors or missing assets"
+  ],
+  "errors": []
+}

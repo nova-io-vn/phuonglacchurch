@@ -1,0 +1,1 @@
+Vật liệu được sinh xác định bằng CanvasTexture ở runtime: vữa, đá lát, gỗ và ngói đỏ (base color + normal suy từ height + AO nhẹ ở khe). Không tải texture từ dịch vụ bên ngoài. Normal/AO procedural, không bake từ công trình thực.
