@@ -33,3 +33,7 @@ Y lên, X ngang, +Z về sân trước. Cửa chính z=18; cung thánh phía -Z.
 Đã chụp các camera chính diện, hai bên, phía sau và 3/4 để xem hình khối, mái, nhịp cửa, các cánh ngang. Ảnh ở docs/screenshots/. Các ảnh chụp tham chiếu bị phối cảnh và chụp lại từ bản in, nên chưa thể khớp camera hoặc tỷ lệ bằng phép đo chuẩn. Không công bố giống 100%; số cửa, bề dày và trang trí còn cần bản vẽ có kích thước để kiểm chứng. Hốc tượng vẫn để trống vì chưa có asset phù hợp được cấp phép.
 
 Bối cảnh riêng được phân tích tại [site-context.md](site-context.md).
+
+## Hiệu chỉnh theo ảnh Street View và xác nhận mới
+
+Xem [revision-4.md](revision-4.md). Hai cổng khác loại và bia xám chữ vàng được dựng theo ảnh người dùng đính kèm. Hồ dài, cụm nhà đỏ và đài trên đảo đặt về phải cuối công trình theo ảnh vệ tinh và chỉ dẫn; ba cột chính, hai tượng hai bên. Tháp nhọn bổ sung **trên khối giữa phía cuối trong ảnh web**, đúng vị trí người dùng xác nhận, giữ mái vòm phía trước. Tượng scan CC0 đã được đưa vào hốc mặt tiền và khu đài; ghi chú hốc còn trống ở phần lịch sử phía trên không còn áp dụng. Ghế hiện tại là 4 dãy × 16 băng. Kích thước và khoảng cách cổng/hồ là giả định thiết kế, không phải đo đạc hiện trạng.

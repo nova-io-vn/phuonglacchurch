@@ -9,7 +9,7 @@ export const STOPS=[
  {title:'Gian chính',text:'Bốn dãy ghế, sàn đá khảm, cột và vòm cao. Nội thất là phương án tái dựng mô phỏng.',p:v(0,4.4,14),t:v(0,4.5,-28)},
  {title:'Ca đoàn bên trái',text:'Không gian ca đoàn được bố trí ở cánh trái khi nhìn từ cửa chính về bàn thờ.',p:v(-6.6,3.7,-20),t:v(-15.5,2.35,-23.8)},
  {title:'Cung thánh',text:'Hậu tòa Gothic, bàn thờ, điểm nhấn mạ vàng và hệ đèn chùm pha lê.',p:v(0,3.65,-26),t:v(0,6,-35)},
- {title:'Đài Đức Mẹ phía cuối',text:'Đài và khu cầu nguyện phía cuối nhà thờ; tượng Đức Mẹ và Hài Nhi dùng bản quét SMK, không phải bản quét tượng thực địa.',p:v(14,11,-66),t:v(0,4.6,-53)},
+ {title:'Đài Đức Mẹ phía cuối',text:'Đài và khu cầu nguyện phía cuối nhà thờ; tượng Đức Mẹ và Hài Nhi dùng bản quét SMK, không phải bản quét tượng thực địa.',p:v(1,16,-44),t:v(25,5.8,-52)},
  {title:'Sông, ao và xóm đạo',text:'Bổ sung tuyến sông/kênh, cầu, ao và bờ xanh. Tọa độ tuyến nước và đài vẫn cần dữ liệu khảo sát để khớp hiện trạng.',p:v(85,64,-132),t:v(0,0,-83)},
  {title:'Tổng thể từ trên cao',text:'Công trình nối với sân, đài Đức Mẹ, ao nước và cảnh quan làng quê.',p:v(100,118,103),t:v(-4,0,-20)},
 ];

@@ -15,7 +15,9 @@ Node 22.12+. Dev: http://localhost:5173. Production preview: http://localhost:41
 
 - Thân dài 54 m theo tỷ lệ mô phỏng, thêm nhịp kiến trúc thay vì kéo giãn hình học cửa/tháp.
 - Bệ 1,35 m; chín cụm cầu thang tám bậc, tay vịn, đèn viền. Cửa bên và phía sau là lỗ mở thực với cánh cửa.
-- Đài Đức Mẹ phía cuối, hai bệ tượng ở sân, tượng ở mặt tiền. Dùng GLB từ bản quét SMK có giấy phép, không phải người hình học thô.
+- Hai cổng lớn theo ảnh Street View, cánh đồng tương tác, cầu lan can đá, bia tên chữ nổi.
+- Đài Đức Mẹ trên đảo trong hồ dài phía phải, ba cột chính và hai tượng hai bên. Dùng GLB từ bản quét SMK có giấy phép; mẫu tượng chưa khớp nhận dạng tượng hiện trạng.
+- Tháp nhọn bổ sung trên khối giữa phía cuối theo vị trí được xác nhận; giữ ba mái vòm mặt tiền. Sân mở rộng, cụm nhà phụ mái đỏ bố trí cạnh hồ.
 - Nhân vật có mặt/mắt/tay/chân và skeleton, cao 1,70 m đo trên geometry. Có nút ẩn/hiện.
 - Sông/kênh, cầu, các ao và mặt nước động; các nhóm trường/nhà/ruộng tham khảo quan hệ trên Google Maps.
 - Bốn dãy ghế dọc, mỗi dãy 16 băng; ca đoàn bên trái. Sàn đá khảm, viền vàng, hậu tòa và đèn chùm pha lê.
@@ -26,6 +28,8 @@ Node 22.12+. Dev: http://localhost:5173. Production preview: http://localhost:41
 **Toàn cảnh:** kéo xoay, cuộn zoom, chuột phải pan. Các nút mặt tiền, mặt bên, trên cao, đài Đức Mẹ, sông/ao và khu vực.
 
 **Không gian nhà thờ:** thay hoàn toàn chế độ Đi dạo. Sáu điểm xem: toàn gian, tầm mắt 1,70 m, cung thánh, ca đoàn, cánh cầu nguyện, vòm/đèn chùm. Kéo để nhìn quanh; cuộn hoặc chụm hai ngón để đổi góc nhìn. Không khóa chuột, không WASD. Camera vẫn di chuyển trong cùng scene.
+
+**Chi tiết:** tám điểm cận cảnh: hai cổng, bia tên, đài trong hồ, tháp nhọn phía cuối, cửa/bậc, kính màu/cột và cung thánh. Chọn điểm, trước/sau, kéo nhìn, cuộn zoom và mở/đóng cổng.
 
 **Tour:** 10 điểm, trước/sau, tạm dừng/tiếp tục, thoát. F toàn màn hình, M mặt bằng, ESC về toàn cảnh. Nhấp cánh cửa để tương tác khi xem tự do. Máy ảnh xuất PNG có tên tác giả trong filename.
 

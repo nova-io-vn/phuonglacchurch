@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-15T06:23:13.520Z",
+  "date": "2026-11-15T06:54:28.899Z",
   "base": "http://localhost:5173",
   "checks": [
     {
@@ -258,10 +258,10 @@
     }
   ],
   "stats": {
-    "calls": 228,
-    "triangles": 1261816,
-    "geometries": 91,
-    "textures": 46
+    "calls": 242,
+    "triangles": 1908260,
+    "geometries": 105,
+    "textures": 47
   },
   "errors": [],
   "missing": []

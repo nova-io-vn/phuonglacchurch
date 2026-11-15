@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-15T06:55:01.349Z",
+  "checks": [
+    "Two distinct gates, each with two moving leaves",
+    "Shrine has three columns and two flanking statues within pond",
+    "Rear spire belongs to rear central block",
+    "Dedicated detailed visit panel",
+    "Gate opens from detailed visit controls",
+    "All eight detailed viewpoints reached",
+    "Previous detail works",
+    "Next detail works",
+    "Exit returns to overview",
+    "Mobile detail panel fits screen",
+    "No runtime or missing asset errors"
+  ],
+  "visits": [
+    {
+      "index": 0,
+      "arrived": true,
+      "p": [
+        -53,
+        5.200000000000003,
+        39
+      ]
+    },
+    {
+      "index": 1,
+      "arrived": true,
+      "p": [
+        -53,
+        5.399999999999999,
+        -44
+      ]
+    },
+    {
+      "index": 2,
+      "arrived": true,
+      "p": [
+        -39,
+        3.6000000000000014,
+        27
+      ]
+    },
+    {
+      "index": 3,
+      "arrived": true,
+      "p": [
+        1,
+        12,
+        -51
+      ]
+    },
+    {
+      "index": 4,
+      "arrived": true,
+      "p": [
+        22,
+        31,
+        -63
+      ]
+    },
+    {
+      "index": 5,
+      "arrived": true,
+      "p": [
+        9,
+        5,
+        34
+      ]
+    },
+    {
+      "index": 6,
+      "arrived": true,
+      "p": [
+        3.4,
+        4.3,
+        -7
+      ]
+    },
+    {
+      "index": 7,
+      "arrived": true,
+      "p": [
+        0,
+        3.65,
+        -26
+      ]
+    }
+  ],
+  "errors": []
+}

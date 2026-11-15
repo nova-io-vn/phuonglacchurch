@@ -18,7 +18,7 @@ export function column(p:T.Object3D,m:T.Material,x:number,z:number,h:number,y=.6
 }
 /** Bake static meshes by material; leave animated doors and lights in their own tree. */
 export function batchStatic(root:T.Group){
- root.updateMatrixWorld(true);const bins=new Map<T.Material,T.BufferGeometry[]>();const old:T.Mesh[]=[];
- root.traverse(o=>{if(o instanceof T.Mesh && !(o instanceof T.InstancedMesh) && !Array.isArray(o.material)){const base=o.geometry.clone().applyMatrix4(o.matrixWorld);const g=base.index?base.toNonIndexed():base;if(g!==base)base.dispose();g.deleteAttribute('uv1');const arr=bins.get(o.material)||[];arr.push(g);bins.set(o.material,arr);old.push(o);}});
+ root.updateWorldMatrix(true,true);const inverse=root.matrixWorld.clone().invert();const bins=new Map<T.Material,T.BufferGeometry[]>();const old:T.Mesh[]=[];
+ root.traverse(o=>{if(o instanceof T.Mesh && !(o instanceof T.InstancedMesh) && !Array.isArray(o.material)){const base=o.geometry.clone().applyMatrix4(inverse.clone().multiply(o.matrixWorld));const g=base.index?base.toNonIndexed():base;if(g!==base)base.dispose();g.deleteAttribute('uv1');const arr=bins.get(o.material)||[];arr.push(g);bins.set(o.material,arr);old.push(o);}});
  for(const o of old)o.removeFromParent();for(const [m,gs] of bins){const merged=mergeGeometries(gs,false);if(merged){const o=mesh(merged,m,root);o.castShadow=!m.userData.transmitsLight;o.name='Batched architecture';}gs.forEach(g=>g.dispose());}
 }
