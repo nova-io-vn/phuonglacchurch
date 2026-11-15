@@ -1,3 +1,5 @@
+Current revision: [revision-6.md](revision-6.md). Google Maps satellite imagery was reopened in Chrome for this revision; see screenshots/maps-revision-6.png. Earlier observations and dimensions below are historical.
+
 > **Bản hiện hành:** xem [hiệu chỉnh 3](revision-3.md) và [giả định mới](assumptions.md). Các kích thước và cách điều khiển ở phần ghi chép lượt trước bên dưới là lịch sử, đã được thay trong bản 3.
 
 ﻿# Bối cảnh địa lý — Giáo xứ Phương Lạc

@@ -15,7 +15,7 @@ class Outline(BasePen):
  def _curveToOne(self,p1,p2,p3): self.commands+=['b',*p3,*p1,*p2]
  def _closePath(self): pass
 data={}
-for ch in sorted(set(' GIÁO XỨ PHƯƠNG LẠC NHÀ THỜ ĐÀI ĐỨC MẸ IHS 0123456789')):
+for ch in sorted(set(' GIÁO XỨ PHƯƠNG LẠC NHÀ THỜ ĐÀI ĐỨC MẸ THÁNH VINH SƠN PHAOLÔ IHS 0123456789')):
  name=font.getBestCmap().get(ord(ch));pen=Outline()
  if not name: continue
  glyphs[name].draw(pen)

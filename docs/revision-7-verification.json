@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-15T07:53:59.742Z",
+  "base": "http://localhost:4173",
+  "checks": [
+    "Author name is accented and prominent",
+    "Author details open in accessible dialog",
+    "Telephone uses actual supplied number",
+    "Website links to supplied HTTPS site",
+    "Closing author dialog preserves overview",
+    "Gate approach ends beyond canal before carriageway",
+    "Side pond shifted to boundary with a clear outer path",
+    "Rear spire has a reduced harmonious height",
+    "Orbit uses moderate sensitivity and stable centred zoom",
+    "Wheel zoom keeps target stable",
+    "Collision does not throw camera across scene",
+    "Interior drag rotates smoothly",
+    "Interior wheel zoom responds without a jump",
+    "Interior navigation can be interrupted by dragging",
+    "Mobile author credit does not overlap toolbar",
+    "Interior two-finger pinch zooms on phone",
+    "No runtime or console errors"
+  ],
+  "errors": []
+}

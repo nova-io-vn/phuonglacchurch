@@ -1,6 +1,6 @@
 # Models and attribution
 
-Application / architectural experience author: **Dinh Quoc Bao**.
+Application / architectural experience author: **Đinh Quốc Bảo**.
 
 ## Marian sculpture
 
@@ -27,3 +27,7 @@ Universal Base Characters — Superhero Male, by Quaternius. CC0 1.0 Universal.
 Changes: relaxed arm pose, skin/shirt/trouser vertex colours, new materials, normalized to a measured 1.70 metre world-space height. Used only as a scale reference; not a scan of an actual parishioner.
 
 All files are served locally. No external model service or API key is required at runtime.
+
+## Vincent de Paul sculptural reconstruction
+
+Original procedural composition in `src/architecture/VincentSculpture.ts`, using the Quaternius CC0 character as the anatomical base for a priest and two children. Posed vertices are baked into static sculpture; cassock, capelet, collar, buttons, facial hair and drapery are new geometry. This is an illustrative reconstruction, not a scan of a statue at Phương Lạc, and not an imported licensed model of a historical Vincent de Paul sculpture. The Marian SMK mesh is not reused for the Vincent figure.

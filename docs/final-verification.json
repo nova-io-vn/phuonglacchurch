@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-15T07:54:11.665Z",
+  "base": "http://localhost:4173",
+  "checks": [
+    "Exactly two bottom buttons",
+    "Only overview and church space remain",
+    "Removed modes and surplus menu are absent from DOM",
+    "Forecourt dimensions unchanged",
+    "Marian pavilion is on church central axis outside front yard",
+    "Bridge connects the front boundary to the island",
+    "Front pond surrounds the island, bridge corridor stays open",
+    "Saint Vincent de Paul pond occupies the side yard",
+    "Vincent group contains two children and distinct priest composition",
+    "Two large entrance gates retained",
+    "Three scale people still measure 1.70 metres",
+    "Four pew blocks and nine stair flights retained",
+    "Night mode retained",
+    "Morning mode retained",
+    "Church Space is reachable using its only tab",
+    "All six interior stations work",
+    "Pointer lock and walk mode absent",
+    "Free pan moves orbit target",
+    "Close zoom is enabled",
+    "Music starts after trusted interaction",
+    "Music pause is respected",
+    "Music resumes",
+    "Mobile overview includes the Marian pavilion",
+    "Mobile has exactly two bottom controls",
+    "Mobile toolbar is compact and within viewport",
+    "Mobile compact chooser reaches left choir",
+    "Author credit retained",
+    "Render calls stay bounded",
+    "No runtime errors or missing resources"
+  ],
+  "spaces": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "stats": {
+    "calls": 254,
+    "triangles": 2209344,
+    "geometries": 117,
+    "textures": 47
+  },
+  "errors": []
+}

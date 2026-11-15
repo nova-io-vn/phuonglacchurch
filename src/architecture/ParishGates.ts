@@ -5,6 +5,7 @@ import {batchStatic,box,cross,curve,extrude,mesh,rod} from '../utils/geometry';
 import {agedStone,carvedStone,cartouche,gateGold,lettering,stoneRail} from './Stonework';
 import {Collision} from '../controls/Collision';
 export const GATE_SITES=[{x:-34,z:38,kind:'open' as const,title:'Cổng trụ và cầu đá'},{x:-34,z:-43,kind:'arch' as const,title:'Cổng vòm đá'}];
+export const GATE_BRIDGE={center:2.6,length:5.6,width:8.8,endX:-39.4,roadNearX:-40};
 export class ParishGate {
  group=new T.Group();leaves:T.Group[]=[];angle=0;open=false;
  constructor(root:T.Group,dynamic:T.Group,font:Font,public x:number,public z:number,public kind:'open'|'arch'){
@@ -35,8 +36,8 @@ export class ParishGate {
   }
   this.leaves.forEach(leaf=>batchStatic(leaf));this.update(0);
   // Raised bridge crossing the water edge with sculpted balustrades.
-  box(frame,agedStone,0,.04,6.3,8.8,.25,13);box(frame,mat.pavement,0,.2,6.3,8.4,.1,13);
-  for(const side of [-1,1]){const rail=new T.Group();rail.position.set(side*4.4,.22,6.3);rail.rotation.y=Math.PI/2;frame.add(rail);stoneRail(rail,13);}
+  box(frame,agedStone,0,.04,GATE_BRIDGE.center,8.8,.25,GATE_BRIDGE.length);box(frame,mat.pavement,0,.2,GATE_BRIDGE.center,8.4,.1,GATE_BRIDGE.length);
+  for(const side of [-1,1]){const rail=new T.Group();rail.position.set(side*4.4,.22,GATE_BRIDGE.center);rail.rotation.y=Math.PI/2;frame.add(rail);stoneRail(rail,GATE_BRIDGE.length);}
  }
  update(dt:number){this.angle=T.MathUtils.damp(this.angle,this.open?1.22:0,6,dt);this.leaves[0].rotation.y=-this.angle;this.leaves[1].rotation.y=this.angle;}
 }
