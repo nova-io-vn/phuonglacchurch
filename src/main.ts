@@ -1,9 +1,10 @@
+import {backgroundMusic} from './app/BackgroundMusic';
 import {FontLoader} from 'three/addons/loaders/FontLoader.js';
 import {buildEntrances} from './architecture/ParishGates';
 import {rearSpire,REAR_SPIRE} from './architecture/RearSpire';
 import {SHRINE} from './architecture/Monuments';
 import {DETAILS} from './controls/Details';
-﻿import * as T from 'three';
+import * as T from 'three';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {EffectComposer} from 'three/addons/postprocessing/EffectComposer.js';
 import {RenderPass} from 'three/addons/postprocessing/RenderPass.js';
@@ -11,6 +12,7 @@ import {UnrealBloomPass} from 'three/addons/postprocessing/UnrealBloomPass.js';
 import {OutputPass} from 'three/addons/postprocessing/OutputPass.js';
 import {mountUI,icon} from './ui/interface';
 import './ui/style.css';
+import './ui/compact.css';
 import {buildChurch} from './architecture/ChurchBuilder';
 import {ornaments} from './architecture/OrnamentBuilder';
 import {monumentBases,loadFigures} from './architecture/Monuments';
@@ -27,7 +29,7 @@ import {parishSite,SITE} from './environment/ParishSite';
 import {Life} from './environment/Life';
 import {isInterior,PEW_BLOCKS,PEW_ROWS,CHURCH_BASE,PLAN} from './architecture/config';
 import {mat} from './materials/palette';
-mountUI();
+mountUI();const music=backgroundMusic(document.getElementById('music') as HTMLButtonElement);
 const $=<E extends HTMLElement=HTMLElement>(id:string)=>document.getElementById(id) as E;
 let toastTimer=0;
 function toast(text:string){$('toast').textContent=text;$('toast').classList.add('show');clearTimeout(toastTimer);toastTimer=window.setTimeout(()=>$('toast').classList.remove('show'),3200);}
@@ -50,27 +52,34 @@ async function boot(){
  const composer=new EffectComposer(renderer);composer.addPass(new RenderPass(scene,camera));composer.addPass(new UnrealBloomPass(new T.Vector2(innerWidth,innerHeight),.20,.38,1.3));composer.addPass(new OutputPass());
  renderer.shadowMap.autoUpdate=false;renderer.shadowMap.needsUpdate=true;
  let mode:'orbit'|'space'|'tour'|'details'='orbit',night=false,map=false,last=performance.now(),disposed=false,orbitFit=1;
- const space=new ChurchSpace(camera,renderer.domElement,index=>{const stop=SPACES[index];$('space-note').textContent=stop.note;$('location-title').textContent=stop.title;$('location-number').textContent=String(index+1).padStart(2,'0');document.querySelectorAll('[data-space]').forEach(b=>b.classList.toggle('active',Number((b as HTMLElement).dataset.space)===index));});
- const details=new ChurchSpace(camera,renderer.domElement,index=>{const stop=DETAILS[index];$('detail-title').textContent=stop.title;$('detail-note').textContent=stop.note;$('detail-count').textContent=`${String(index+1).padStart(2,'0')} / ${DETAILS.length}`;$('location-title').textContent=stop.title;$('location-number').textContent=String(index+1).padStart(2,'0');$('detail-gate').hidden=stop.gate<0;document.querySelectorAll('[data-detail]').forEach(b=>b.classList.toggle('active',Number((b as HTMLElement).dataset.detail)===index));},DETAILS);
+ const space=new ChurchSpace(camera,renderer.domElement,index=>{const stop=SPACES[index];$<HTMLSelectElement>('space-select').value=String(index);$('space-note').textContent=stop.note;$('location-title').textContent=stop.title;$('location-number').textContent=String(index+1).padStart(2,'0');document.querySelectorAll('[data-space]').forEach(b=>b.classList.toggle('active',Number((b as HTMLElement).dataset.space)===index));});
+ const details=new ChurchSpace(camera,renderer.domElement,index=>{const stop=DETAILS[index];$<HTMLSelectElement>('detail-select').value=String(index);$('detail-title').textContent=stop.title;$('detail-note').textContent=stop.note;$('detail-count').textContent=`${String(index+1).padStart(2,'0')} / ${DETAILS.length}`;$('location-title').textContent=stop.title;$('location-number').textContent=String(index+1).padStart(2,'0');$('detail-gate').hidden=stop.gate<0;document.querySelectorAll('[data-detail]').forEach(b=>b.classList.toggle('active',Number((b as HTMLElement).dataset.detail)===index));},DETAILS);
  const tour=new GuidedTour(camera,index=>{const stop=STOPS[index];$('tour-count').textContent=`${String(index+1).padStart(2,'0')} / ${STOPS.length}`;$('tour-title').textContent=stop.title;$('tour-text').textContent=stop.text;$('location-title').textContent=stop.title;$('location-number').textContent=String(index+1).padStart(2,'0');($('tour-prev') as HTMLButtonElement).disabled=index===0;($('tour-next') as HTMLButtonElement).disabled=index===STOPS.length-1;});
- function resize(){camera.aspect=innerWidth/innerHeight;if(mode==='orbit'){const fit=Math.max(1,1.08/camera.aspect);camera.position.sub(orbit.controls.target).multiplyScalar(fit/orbitFit).add(orbit.controls.target);orbit.controls.maxDistance=250*fit;orbitFit=fit;}camera.setViewOffset(innerWidth,innerHeight,mode==='orbit'&&innerWidth>760?-innerWidth*.095:0,mode==='orbit'&&innerWidth<=760?-innerHeight*.08:0,innerWidth,innerHeight);camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);}
+ function resize(){camera.aspect=innerWidth/innerHeight;if(mode==='orbit'){const fit=Math.max(1,Math.sqrt(1/camera.aspect));camera.position.sub(orbit.controls.target).multiplyScalar(fit/orbitFit).add(orbit.controls.target);orbit.controls.maxDistance=650;orbitFit=fit;}camera.clearViewOffset();camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);composer.setSize(innerWidth,innerHeight);}
  function updatePause(){$('tour-pause').innerHTML=icon(tour.paused?'tour':'pause')+(tour.paused?' Tiếp tục':' Tạm dừng');}
  function setMode(next:typeof mode){
-  space.exit();details.exit();tour.stop();clearTimeout(toastTimer);$('toast').classList.remove('show');document.querySelectorAll('[data-view]').forEach(b=>b.classList.remove('selected'));mode=next;orbit.controls.enabled=next==='orbit';document.body.classList.toggle('exploring',next!=='orbit');for(const id of ['orbit','space','tour','details'])$(id).classList.toggle('active',id===next);$('detail-panel').hidden=next!=='details';$('space-panel').hidden=next!=='space';$('tour-panel').hidden=next!=='tour';$('minimap').hidden=true;map=false;
+  showMore(false);space.exit();details.exit();tour.stop();clearTimeout(toastTimer);$('toast').classList.remove('show');document.querySelectorAll('[data-view]').forEach(b=>b.classList.remove('selected'));mode=next;orbit.controls.enabled=next==='orbit';document.body.classList.toggle('exploring',next!=='orbit');for(const id of ['orbit','space','tour','details'])$(id).classList.toggle('active',id===next);$('detail-panel').hidden=next!=='details';$('space-panel').hidden=next!=='space';$('tour-panel').hidden=next!=='tour';$('minimap').hidden=true;map=false;
   if(next==='orbit'){camera.fov=43;orbit.reset();orbitFit=1;$('location-title').textContent='Toàn cảnh giáo xứ';$('location-number').textContent='01';}
   else{doors.forEach(d=>d.open=true);if(next==='space')space.enter();else if(next==='details')details.enter();else{camera.fov=47;tour.start();updatePause();}}
   resize();
  }
+ function showMore(open:boolean){$('more-panel').hidden=!open;$('more').setAttribute('aria-expanded',String(open));}
+ $('more').onclick=()=>showMore($('more-panel').hidden);$('more-close').onclick=()=>showMore(false);
+ renderer.domElement.addEventListener('pointerdown',()=>showMore(false));
+ $('more-panel').addEventListener('click',e=>{if((e.target as Element).closest('button:not(#more-close)'))showMore(false);});
+ $('space-select').innerHTML=SPACES.map((s,i)=>`<option value="${i}">${s.title}</option>`).join('');
+ $('detail-select').innerHTML=DETAILS.map((s,i)=>`<option value="${i}">${s.title}</option>`).join('');
+ $('space-select').onchange=()=>space.go(Number($<HTMLSelectElement>('space-select').value));$('detail-select').onchange=()=>details.go(Number($<HTMLSelectElement>('detail-select').value));
  $('detail-stations').innerHTML=DETAILS.map((s,i)=>`<button data-detail="${i}">${String(i+1).padStart(2,'0')} &nbsp; ${s.title}</button>`).join('');
  document.querySelectorAll<HTMLButtonElement>('[data-detail]').forEach(b=>b.onclick=()=>details.go(Number(b.dataset.detail)));
  $('details').onclick=()=>setMode('details');$('detail-exit').onclick=()=>setMode('orbit');$('detail-prev').onclick=()=>details.go((details.index+DETAILS.length-1)%DETAILS.length);$('detail-next').onclick=()=>details.go((details.index+1)%DETAILS.length);
  $('detail-gate').onclick=()=>{const g=gates[DETAILS[details.index].gate];if(g){g.open=!g.open;renderer.shadowMap.needsUpdate=true;}};
  $('space-stations').innerHTML=SPACES.map((s,i)=>`<button data-space="${i}"${i===0?' class="active"':''}>${String(i+1).padStart(2,'0')} &nbsp; ${s.title}</button>`).join('');
  document.querySelectorAll<HTMLButtonElement>('[data-space]').forEach(b=>b.onclick=()=>space.go(Number(b.dataset.space)));
- $('orbit').onclick=()=>setMode('orbit');$('space').onclick=()=>setMode('space');$('enter').onclick=()=>setMode('space');$('tour').onclick=()=>setMode('tour');$('tour-exit').onclick=()=>setMode('orbit');$('reset').onclick=()=>setMode('orbit');
+ $('orbit').onclick=()=>setMode('orbit');$('space').onclick=()=>setMode('space');$('tour').onclick=()=>setMode('tour');$('tour-exit').onclick=()=>setMode('orbit');$('reset').onclick=()=>setMode('orbit');
  $('tour-prev').onclick=()=>tour.go(tour.index-1);$('tour-next').onclick=()=>tour.go(tour.index+1);$('tour-pause').onclick=()=>{tour.paused=!tour.paused;updatePause();};
- function setTime(value:boolean){night=value;lighting.set(night);document.body.classList.toggle('night',night);$('daynight').innerHTML=icon(night?'sun':'moon');$('weather-label').textContent=night?'BUỔI TỐI · 19:00':'BUỔI SÁNG · 07:30';$('daynight').setAttribute('aria-pressed',String(night));for(const id of ['morning','evening']){const active=(id==='evening')===night;$(id).classList.toggle('active',active);$(id).setAttribute('aria-pressed',String(active));}}
- $('morning').onclick=()=>setTime(false);$('evening').onclick=()=>setTime(true);$('daynight').onclick=()=>setTime(!night);
+ function setTime(value:boolean){night=value;lighting.set(night);document.body.classList.toggle('night',night);$('weather-label').textContent=night?'BUỔI TỐI · 19:00':'BUỔI SÁNG · 07:30';for(const id of ['morning','evening']){const active=(id==='evening')===night;$(id).classList.toggle('active',active);$(id).setAttribute('aria-pressed',String(active));}}
+ $('morning').onclick=()=>setTime(false);$('evening').onclick=()=>setTime(true);
  $('people-toggle').onclick=()=>{figures.humans.visible=!figures.humans.visible;$('people-toggle').setAttribute('aria-pressed',String(figures.humans.visible));$('people-toggle').textContent=figures.humans.visible?'Ẩn người tỷ lệ':'Hiện người tỷ lệ';};
  function toggleMap(){map=!map;$('minimap').hidden=!map;}$('map-toggle').onclick=toggleMap;$('map-close').onclick=toggleMap;
  $('map-seating').innerHTML=PEW_BLOCKS.map(x=>Array.from({length:PEW_ROWS},(_,row)=>`<path d="M${x-1.25} ${11-row*1.85}h2.5" class="map-pews"/>`).join('')).join('');
@@ -88,7 +97,7 @@ async function boot(){
   lighting.update(camera);if(gates.some(g=>Math.abs(g.angle-(g.open?1.22:0))>.02)||doors.some(d=>Math.abs(d.angle-(d.open?1.45:0))>.02))renderer.shadowMap.needsUpdate=true;lighting.sky.update(now/1000);life.update(now/1000,night);render();requestAnimationFrame(frame);
  }
  lighting.update(camera);renderer.compile(scene,camera);render();$('loading').style.opacity='0';setTimeout(()=>$('loading').remove(),800);requestAnimationFrame(frame);
- Object.assign(window,{__app:{gates,details,detailStops:DETAILS,shrine:SHRINE,rearSpire:REAR_SPIRE,camera,scene,renderer,collision,doors,tour,space,orbit,setMode,setTime,figures,measureFigures:()=>figures.humans.children.map(o=>{const b=new T.Box3().setFromObject(o,true);return b.max.y-b.min.y;}),site:SITE,plan:PLAN,pewBlocks:PEW_BLOCKS,pewRows:PEW_ROWS,get mode(){return mode;},stats:()=>({calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures})}});
+ Object.assign(window,{__app:{music,gates,details,detailStops:DETAILS,shrine:SHRINE,rearSpire:REAR_SPIRE,camera,scene,renderer,collision,doors,tour,space,orbit,setMode,setTime,figures,measureFigures:()=>figures.humans.children.map(o=>{const b=new T.Box3().setFromObject(o,true);return b.max.y-b.min.y;}),site:SITE,plan:PLAN,pewBlocks:PEW_BLOCKS,pewRows:PEW_ROWS,get mode(){return mode;},stats:()=>({calls:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures})}});
  window.addEventListener('pagehide',()=>{disposed=true;space.exit();details.exit();orbit.controls.dispose();const geos=new Set<T.BufferGeometry>(),materials=new Set<T.Material>();scene.traverse(o=>{if(o instanceof T.Mesh){geos.add(o.geometry);(Array.isArray(o.material)?o.material:[o.material]).forEach(m=>materials.add(m));}});geos.forEach(g=>g.dispose());materials.forEach(m=>{for(const value of Object.values(m))if(value instanceof T.Texture)value.dispose();m.dispose();});composer.passes.forEach(pass=>pass.dispose());composer.dispose();environment.dispose();renderer.dispose();},{once:true});
 }
 boot().catch(error=>{console.error(error);$('loading').innerHTML='<strong>Không thể mở không gian 3D</strong><p>Hãy dùng trình duyệt có WebGL 2 và tải lại trang.</p>';});

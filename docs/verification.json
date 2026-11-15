@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-15T06:54:28.899Z",
+  "date": "2026-11-15T07:13:20.658Z",
   "base": "http://localhost:5173",
   "checks": [
     {
@@ -43,7 +43,7 @@
       "pass": true
     },
     {
-      "name": "Rear shrine is a dedicated viewpoint",
+      "name": "Front shrine is a dedicated viewpoint",
       "pass": true
     },
     {
@@ -258,9 +258,9 @@
     }
   ],
   "stats": {
-    "calls": 242,
-    "triangles": 1908260,
-    "geometries": 105,
+    "calls": 241,
+    "triangles": 1823834,
+    "geometries": 102,
     "textures": 47
   },
   "errors": [],

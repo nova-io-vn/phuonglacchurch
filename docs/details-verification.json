@@ -1,8 +1,8 @@
 {
-  "date": "2026-11-15T06:55:01.349Z",
+  "date": "2026-11-15T07:11:24.421Z",
   "checks": [
     "Two distinct gates, each with two moving leaves",
-    "Shrine has three columns and two flanking statues within pond",
+    "Shrine now has a dry front forecourt setting",
     "Rear spire belongs to rear central block",
     "Dedicated detailed visit panel",
     "Gate opens from detailed visit controls",
@@ -45,9 +45,9 @@
       "index": 3,
       "arrived": true,
       "p": [
-        1,
-        12,
-        -51
+        18,
+        9,
+        71
       ]
     },
     {

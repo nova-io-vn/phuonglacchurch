@@ -1,6 +1,12 @@
 ﻿# Tiến độ hiện hành
 
-Bản hiệu chỉnh 4: **Dinh Quoc Bao**, Nhà thờ Giáo xứ Phương Lạc.
+Bản hiệu chỉnh 5: **Dinh Quoc Bao**, Nhà thờ Giáo xứ Phương Lạc.
+
+Hiện hành: giao diện gọn cho điện thoại; bỏ giới thiệu lớn và các lớp chữ che công trình, công cụ phụ trong bảng Khác. Nhạc `/nhac.mp3` phát lặp, thử autoplay và khởi phát sau lần chạm đầu tiên nếu trình duyệt yêu cầu; có bật/tắt. Đài chuyển ra nền đá khô ở hồ cũ sân trước, thêm hai trụ tượng hai bên sân; bỏ hồ lớn và lan can phía sau cùng ao cản lối cổng sau. Orbit hỗ trợ pan hai ngón, zoom gần và di chuyển mục tiêu toàn khu vực. Xem [revision-5.md](revision-5.md).
+
+Build production thành công. Bộ kiểm tra giao diện/nhạc/cảnh quan mới: 17 đạt; chi tiết: 11 đạt; smoke production: 10 đạt; hồi quy chức năng cũ: 35 đạt. Tổng 73 kiểm tra đạt, không có lỗi runtime hoặc tài nguyên thiếu. Đo tổng quan: 241 draw calls, khoảng 1,82 triệu tam giác kể cả bóng. Ảnh mới 36–43 trong screenshots/. Các báo cáo: compact-verification.json, details-verification.json, production-verification.json và verification.json.
+
+Các đoạn sau ghi lịch sử bản 4 và bản 3; vị trí đài trên đảo phía sau không còn áp dụng.
 
 Hiện hành: hai cổng lớn khác kiểu, bia tên chữ nổi, cầu/lan can đá, hồ dài phía phải với đảo đài ba cột và hai tượng hai bên; tháp nhọn trên khối giữa phía cuối theo xác nhận của người dùng. Mở rộng khuôn viên, bố trí lại nhà mái đỏ, lá cây instanced và lá nổi trên ao. Thêm mục Chi tiết gồm tám điểm xem và điều khiển mở cổng. Giữ ba mái vòm mặt tiền, bốn dãy ghế, ca đoàn trái và Không gian nhà thờ.
 

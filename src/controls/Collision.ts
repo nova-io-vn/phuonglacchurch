@@ -20,7 +20,6 @@ export class Collision {
   if(isInterior(x,z)){if(z< -29&&Math.abs(x)<6)return 1.35+Math.min(3,Math.floor((-29-z)/.7)+1)*.18;if(x< -11.6&&z> -29.25&&z< -18.75)return 1.51;return 1.35;}
   // Stair treads are sampled as actual floor levels, not a camera passing through a box.
   if(z>=18.5&&z<21.125&&Math.abs(x)<11.3)return Math.max(0,.6-Math.max(0,Math.ceil((z-18.875)/.75))*.15);
-  if(Math.abs(x-18)<.85&&z>31.9&&z<41||Math.abs(x-18)<1.9&&Math.abs(z-43)<2.25)return .46;
   return 0;
  }
 }

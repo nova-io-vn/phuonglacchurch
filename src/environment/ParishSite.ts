@@ -3,7 +3,6 @@ import {mat} from '../materials/palette';
 import {arch,box,cross,extrude,mesh,rod} from '../utils/geometry';
 import {Collision} from '../controls/Collision';
 import {stoneRail} from '../architecture/Stonework';
-import {SHRINE} from '../architecture/Monuments';
 import {waterway} from './River';
 export const SITE={latitude:20.0533125,longitude:106.1911875,frontBearing:270,source:'https://maps.app.goo.gl/w534umHBSEyiYDQz5'};
 const asphalt=new T.MeshStandardMaterial({color:'#777b76',roughness:.97}),soil=new T.MeshStandardMaterial({color:'#86765c',roughness:1});
@@ -68,7 +67,8 @@ export function parishSite(root:T.Group,col:Collision){
  for(let i=0;i<14;i++){const x=-88+i*12;if(Math.abs(x)<28)continue;house(root,x,-101,6+(i%3),8+(i%2)*3,3+(i%3),i+1);if(i%2===0)tree(root,x+4,-108,.7);}
  // Parish buildings east of the proposed church and a small southern block.
  house(root,-17,-55,8,12,6.2,1,col);house(root,-4,-56,10,14,3.7,1,col);house(root,4,-57,9,8,3.4,1,col);
- pond(root,col,18,43,9,10);pond(root,col,-12,-117,10,13);pond(root,col,12,-118,10,14);pond(root,col,SHRINE.pond.x,SHRINE.pond.z,SHRINE.pond.rx,SHRINE.pond.rz);pond(root,col,-27,27,5,6);pond(root,col,-27,-32,5,6);waterway(root,water,col);
+ // Remove the front pond, rear shrine pond and rear gate pond: all three are now usable paving.
+ pond(root,col,-12,-117,10,13);pond(root,col,12,-118,10,14);pond(root,col,-27,27,5,6);waterway(root,water,col);
  // Trees frame the enlarged site and leave both entrances and the shrine unobstructed.
  for(const z of [-29,-15,1,17,49])for(const x of [-28,46])tree(root,x,z,.85,col);
  for(let z=-117;z<125;z+=18)if(Math.abs(z-38)>9&&Math.abs(z+43)>9&&Math.abs(z-29)>7)tree(root,-33,z,.85);

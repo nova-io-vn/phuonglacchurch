@@ -16,8 +16,8 @@ Node 22.12+. Dev: http://localhost:5173. Production preview: http://localhost:41
 - Thân dài 54 m theo tỷ lệ mô phỏng, thêm nhịp kiến trúc thay vì kéo giãn hình học cửa/tháp.
 - Bệ 1,35 m; chín cụm cầu thang tám bậc, tay vịn, đèn viền. Cửa bên và phía sau là lỗ mở thực với cánh cửa.
 - Hai cổng lớn theo ảnh Street View, cánh đồng tương tác, cầu lan can đá, bia tên chữ nổi.
-- Đài Đức Mẹ trên đảo trong hồ dài phía phải, ba cột chính và hai tượng hai bên. Dùng GLB từ bản quét SMK có giấy phép; mẫu tượng chưa khớp nhận dạng tượng hiện trạng.
-- Tháp nhọn bổ sung trên khối giữa phía cuối theo vị trí được xác nhận; giữ ba mái vòm mặt tiền. Sân mở rộng, cụm nhà phụ mái đỏ bố trí cạnh hồ.
+- Đài Đức Mẹ trên sân khô phía trước bên phải tại vị trí hồ cũ, ba cột chính và hai tượng hai bên; thêm hai trụ tượng cao hai bên sân. Dùng GLB từ bản quét SMK có giấy phép; mẫu tượng chưa khớp nhận dạng tượng hiện trạng.
+- Tháp nhọn bổ sung trên khối giữa phía cuối theo vị trí được xác nhận; giữ ba mái vòm mặt tiền. Sân rộng và lối đi thông phía sau cụm nhà phụ mái đỏ.
 - Nhân vật có mặt/mắt/tay/chân và skeleton, cao 1,70 m đo trên geometry. Có nút ẩn/hiện.
 - Sông/kênh, cầu, các ao và mặt nước động; các nhóm trường/nhà/ruộng tham khảo quan hệ trên Google Maps.
 - Bốn dãy ghế dọc, mỗi dãy 16 băng; ca đoàn bên trái. Sàn đá khảm, viền vàng, hậu tòa và đèn chùm pha lê.
@@ -26,6 +26,8 @@ Node 22.12+. Dev: http://localhost:5173. Production preview: http://localhost:41
 ## Điều khiển mới
 
 **Toàn cảnh:** kéo xoay, cuộn zoom, chuột phải pan. Các nút mặt tiền, mặt bên, trên cao, đài Đức Mẹ, sông/ao và khu vực.
+
+Giao diện gọn cho điện thoại; các góc nhìn và công cụ phụ nằm trong nút **Khác**. Một ngón xoay, hai ngón kéo/thu phóng; mục tiêu camera có thể di chuyển quanh toàn khu vực. MP3 `/nhac.mp3` phát lặp: tự thử khi mở trang và bắt đầu sau lần chạm đầu tiên nếu trình duyệt chặn autoplay có tiếng. Có nút bật/tắt riêng.
 
 **Không gian nhà thờ:** thay hoàn toàn chế độ Đi dạo. Sáu điểm xem: toàn gian, tầm mắt 1,70 m, cung thánh, ca đoàn, cánh cầu nguyện, vòm/đèn chùm. Kéo để nhìn quanh; cuộn hoặc chụm hai ngón để đổi góc nhìn. Không khóa chuột, không WASD. Camera vẫn di chuyển trong cùng scene.
 

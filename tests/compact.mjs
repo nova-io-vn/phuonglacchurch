@@ -1,0 +1,32 @@
+import {chromium} from '@playwright/test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--autoplay-policy=document-user-activation-required']});
+const page=await browser.newPage({viewport:{width:430,height:900},isMobile:true,hasTouch:true}),errors=[],checks=[];
+page.on('pageerror',e=>errors.push(e.message));page.on('response',r=>{if(r.status()>=400)errors.push(`${r.status()} ${r.url()}`);});
+const check=(name,ok)=>{assert.ok(ok,name);checks.push(name);console.log('PASS '+name);};
+const shot=async name=>{await page.waitForTimeout(250);await page.screenshot({path:`docs/screenshots/${name}.png`});};
+const more=async()=>{if(!await page.locator('#more-panel').isVisible())await page.click('#more');};
+try{
+ await page.goto(process.env.TEST_URL||'http://localhost:5173');await page.waitForFunction(()=>window.__app,{timeout:90000});await page.waitForSelector('#loading',{state:'detached'});
+ check('Intro and faith/heritage text removed from DOM',await page.locator('.intro').count()===0&&!await page.locator('body').innerText().then(t=>t.includes('ĐỨC TIN & DI SẢN')));
+ check('Extra tools closed by default',!await page.locator('#more-panel').isVisible());check('Location and scale badges do not cover model',!await page.locator('.location').isVisible()&&!await page.locator('.scale-badge').isVisible());
+ check('Compact mobile toolbar fits screen',await page.locator('.toolbar').evaluate(e=>{const r=e.getBoundingClientRect();return r.width<=innerWidth&&r.height<75;}));
+ check('Shrine moved to former front pond on dry paving',await page.evaluate(()=>{const a=window.__app,s=a.shrine;return s.x===18&&s.z===47&&!s.onWater&&a.figures.statues[0].position.z===47;}));
+ check('Old front/rear water obstacles removed',await page.evaluate(()=>!window.__app.collision.obstacles.some(o=>o.name==='pond'&&((o.x>8&&o.x<38&&o.z>33&&o.z<55)||(o.x>12&&o.x<38&&o.z< -31&&o.z> -73)||(o.x< -22&&o.x> -33&&o.z> -39&&o.z< -25)))));
+ check('Two extra tall statue columns flank forecourt',await page.evaluate(()=>{const s=window.__app.figures.statues;return s.length===7&&s[3].position.x===-18&&s[4].position.x===18&&s[3].position.z===30&&s[4].position.y===8.4;}));
+ await shot('36-clean-mobile');
+ await page.touchscreen.tap(220,350);await page.waitForFunction(()=>!window.__app.music.paused&&window.__app.music.currentTime>.1,{timeout:20000});check('Local MP3 starts after first gesture under autoplay restrictions',await page.evaluate(()=>window.__app.music.src.endsWith('/nhac.mp3')&&window.__app.music.loop&&window.__app.music.volume===.32));
+ await page.click('#music');await page.touchscreen.tap(220,350);check('User pause is respected on later touches',await page.evaluate(()=>window.__app.music.paused));await page.click('#music');await page.waitForFunction(()=>!window.__app.music.paused);check('Music resumes using visible toggle',true);
+ await more();await shot('37-mobile-tools');await page.click('[data-view=shrine]');check('View selection closes optional menu',!await page.locator('#more-panel').isVisible());await shot('38-front-shrine-mobile');
+ await page.click('#details');await page.selectOption('#detail-select','3');await page.evaluate(()=>{const a=window.__app;for(let i=0;i<8000&&a.details.moving;i++)a.details.update(.03);});check('Mobile detail chooser reaches relocated shrine',await page.evaluate(()=>window.__app.details.index===3&&window.__app.camera.position.z===71));check('Mobile details leave most of scene visible',await page.locator('#detail-panel').evaluate(e=>e.getBoundingClientRect().height<160));await shot('39-compact-details');
+ await page.click('#space');await page.selectOption('#space-select','3');await page.evaluate(()=>{const a=window.__app;for(let i=0;i<8000&&a.space.moving;i++)a.space.update(.03);});check('Compact interior chooser still works',await page.evaluate(()=>window.__app.space.index===3));await shot('40-compact-choir');
+ await page.click('#orbit');const cdp=await page.context().newCDPSession(page),before=await page.evaluate(()=>window.__app.orbit.controls.target.toArray());
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:150,y:350,id:1},{x:230,y:350,id:2}]});
+ for(let i=1;i<=10;i++)await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{x:150+i*5,y:350+i*4,id:1},{x:230+i*7,y:350+i*4,id:2}]});await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
+ check('Two-finger gesture pans freely to a new target',await page.evaluate(p=>window.__app.orbit.controls.target.toArray().some((v,i)=>Math.abs(v-p[i])>1),before));
+ check('Zoom supports close inspection and broad site travel',await page.evaluate(()=>{const c=window.__app.orbit.controls;return c.minDistance<1&&c.maxDistance>=600&&c.zoomToCursor&&c.screenSpacePanning;}));
+ await page.setViewportSize({width:1440,height:960});await page.click('#reset',{force:true}).catch(async()=>{await more();await page.click('#reset');});await shot('41-clean-desktop');await page.evaluate(()=>{const a=window.__app;a.orbit.camera.position.set(54,33,-69);a.orbit.controls.target.set(3,7,-43);a.orbit.controls.update();});await shot('42-clear-rear-passage');
+ await more();await page.click('[data-view=shrine]');await page.click('#evening');await shot('43-front-shrine-night');
+ check('No runtime or missing asset errors',errors.length===0);await fs.writeFile('docs/compact-verification.json',JSON.stringify({date:new Date().toISOString(),checks,errors},null,2));console.log(checks.length+' checks passed');
+}catch(e){console.error(e,errors);await shot('compact-failure');process.exitCode=1;}finally{await browser.close();}

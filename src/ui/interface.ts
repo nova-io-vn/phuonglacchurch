@@ -1,5 +1,6 @@
 import layout from './layout.html?raw';
 const icons:Record<string,string>={
+ music:'<path d="M9 18V5l11-2v13M9 7l11-2"/><ellipse cx="6" cy="18" rx="3" ry="2"/><ellipse cx="17" cy="16" rx="3" ry="2"/>',more:'<circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/>',
  orbit:'<circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="5" transform="rotate(-30 12 12)"/>',
  space:'<path d="M4 21V10Q4 6 8 4Q12 6 12 10V21M12 21V10Q12 6 16 4Q20 6 20 10V21M2 21h20M8 10v8m8-8v8"/>',
  tour:'<path d="m9 5 11 7-11 7Z"/>',sun:'<circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4 4l2 2m12 12 2 2M4 20l2-2M18 6l2-2"/>',moon:'<path d="M20.5 14A9 9 0 0 1 10 3.5 9 9 0 1 0 20.5 14Z"/>',

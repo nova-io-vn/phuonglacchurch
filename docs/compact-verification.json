@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-15T07:11:01.220Z",
+  "checks": [
+    "Intro and faith/heritage text removed from DOM",
+    "Extra tools closed by default",
+    "Location and scale badges do not cover model",
+    "Compact mobile toolbar fits screen",
+    "Shrine moved to former front pond on dry paving",
+    "Old front/rear water obstacles removed",
+    "Two extra tall statue columns flank forecourt",
+    "Local MP3 starts after first gesture under autoplay restrictions",
+    "User pause is respected on later touches",
+    "Music resumes using visible toggle",
+    "View selection closes optional menu",
+    "Mobile detail chooser reaches relocated shrine",
+    "Mobile details leave most of scene visible",
+    "Compact interior chooser still works",
+    "Two-finger gesture pans freely to a new target",
+    "Zoom supports close inspection and broad site travel",
+    "No runtime or missing asset errors"
+  ],
+  "errors": []
+}

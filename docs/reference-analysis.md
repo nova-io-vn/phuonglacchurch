@@ -37,3 +37,5 @@ Bối cảnh riêng được phân tích tại [site-context.md](site-context.md
 ## Hiệu chỉnh theo ảnh Street View và xác nhận mới
 
 Xem [revision-4.md](revision-4.md). Hai cổng khác loại và bia xám chữ vàng được dựng theo ảnh người dùng đính kèm. Hồ dài, cụm nhà đỏ và đài trên đảo đặt về phải cuối công trình theo ảnh vệ tinh và chỉ dẫn; ba cột chính, hai tượng hai bên. Tháp nhọn bổ sung **trên khối giữa phía cuối trong ảnh web**, đúng vị trí người dùng xác nhận, giữ mái vòm phía trước. Tượng scan CC0 đã được đưa vào hốc mặt tiền và khu đài; ghi chú hốc còn trống ở phần lịch sử phía trên không còn áp dụng. Ghế hiện tại là 4 dãy × 16 băng. Kích thước và khoảng cách cổng/hồ là giả định thiết kế, không phải đo đạc hiện trạng.
+
+Yêu cầu mới ở [revision-5.md](revision-5.md) thay vị trí đài phía sau: đài nay nằm trên nền đá khô tại vùng hồ cũ sân trước bên phải; thêm hai trụ tượng hai bên sân. Bỏ hồ và lan can đài cũ để trả lại lối đi phía sau, cùng ao cạnh cổng sau. Ảnh ứng dụng người dùng cung cấp là cơ sở xác định khu vực cần di chuyển, không phải bản vẽ đo tọa độ.

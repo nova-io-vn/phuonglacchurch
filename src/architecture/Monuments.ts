@@ -2,11 +2,12 @@ import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {clone} from 'three/addons/utils/SkeletonUtils.js';
 import {mat} from '../materials/palette';
-import {box,column,cross,curve,mesh,ring} from '../utils/geometry';
+import {box,column,cross,curve,mesh} from '../utils/geometry';
 import type {Font} from 'three/addons/loaders/FontLoader.js';
-import {agedStone,carvedStone,gateGold,lettering,stoneRail} from './Stonework';
+import {agedStone,carvedStone,gateGold,lettering} from './Stonework';
 const marble=new T.MeshStandardMaterial({color:'#eee9d7',roughness:.55,metalness:.03});
-export const SHRINE={x:25,z:-52,rotation:-Math.PI/2,columns:3,sideStatues:2,pond:{x:25,z:-52,rx:12,rz:20}};
+export const SHRINE={x:18,z:47,rotation:0,columns:3,sideStatues:2,onWater:false};
+export const PLAZA_COLUMNS=[{x:-18,z:30},{x:18,z:30}];
 export function monumentBases(root:T.Group,font:Font){
  const g=new T.Group();g.position.set(SHRINE.x,0,SHRINE.z);g.rotation.y=SHRINE.rotation;root.add(g);
  for(let i=0;i<4;i++)box(g,agedStone,0,.13+i*.17,0,21-i*.65,.26,8.5-i*.4);
@@ -21,17 +22,19 @@ export function monumentBases(root:T.Group,font:Font){
  }
  for(const x of [-7.8,7.8]){for(let i=0;i<3;i++)box(g,carvedStone,x,.94+i*.17,0,2.7-i*.27,.18,2.5-i*.2);box(g,agedStone,x,1.76,0,1.6,.9,1.5);box(g,gateGold,x,2.3,0,1.9,.12,1.8);}
  lettering(g,font,'ĐÀI ĐỨC MẸ',.31,0,.95,3.66);
- // The island is surrounded by the pond and reached by a real stone bridge from the courtyard.
- box(root,agedStone,17.5,.28,-52,9.6,.56,3.2);box(root,carvedStone,17.5,.61,-52,9.6,.12,3.2);
- for(const z of [-53.8,-50.2]){const p=new T.Group();p.position.set(17.5,.65,z);root.add(p);stoneRail(p,9.6);}
- for(const [x,z,l,r] of [[12.6,-62.5,19,Math.PI/2],[12.6,-41.5,19,Math.PI/2],[37.4,-52,40,Math.PI/2],[25,-72.4,24.8,0],[25,-31.6,24.8,0]]){const p=new T.Group();p.position.set(x,.05,z);p.rotation.y=r;root.add(p);stoneRail(p,l);}
+ // Dry paved forecourt: the former pond and its enclosing rails are removed.
+ for(const p of PLAZA_COLUMNS){
+  column(root,agedStone,p.x,p.z,8.2,.12,.48);
+  for(let j=0;j<12;j++){const a=j*Math.PI/6;const flute=mesh(new T.CylinderGeometry(.035,.035,7.25,7),carvedStone,root,p.x+Math.cos(a)*.48,4.05,p.z+Math.sin(a)*.48);flute.name='Fluted plaza statue column';}
+  for(const y of [.8,7.98]){const band=mesh(new T.TorusGeometry(.64,.06,8,48),gateGold,root,p.x,y,p.z);band.rotation.x=Math.PI/2;}
+ }
 }
 function rodForFlute(g:T.Group,x:number,a:number,h:number){const p=mesh(new T.CylinderGeometry(.035,.035,h-.9,7),carvedStone,g,x+Math.cos(a)*.48,1.35+(h-.9)/2,Math.sin(a)*.48);return p;}
 export async function loadFigures(root:T.Group){
  const loader=new GLTFLoader();const [mary,low,person]=await Promise.all([loader.loadAsync('/models/mary.glb'),loader.loadAsync('/models/mary-low.glb'),loader.loadAsync('/models/human.glb')]);
  function canonical(g:T.Object3D){g.rotation.x=-Math.PI/2;g.updateMatrixWorld(true);const b=new T.Box3().setFromObject(g),h=b.max.y-b.min.y;g.scale.multiplyScalar(1/h);g.position.set(-(b.min.x+b.max.x)/2/h,-b.min.y/h,-(b.min.z+b.max.z)/2/h);g.traverse(o=>{if(o instanceof T.Mesh){o.material=marble;o.castShadow=true;o.receiveShadow=true;}});const p=new T.Group();p.add(g);return p;}
  const high=canonical(mary.scene),small=canonical(low.scene);const statues:T.Object3D[]=[];
- for(const a of [{x:25,y:9.45,z:-52,h:3.2,r:-Math.PI/2},{x:25,y:2.38,z:-59.8,h:2.35,r:-Math.PI/2},{x:25,y:2.38,z:-44.2,h:2.35,r:-Math.PI/2},{x:0,y:8.2,z:19.07,h:2.1,r:0},{x:0,y:12.65,z:19.15,h:4.2,r:0}]){
+ for(const a of [{x:SHRINE.x,y:9.45,z:SHRINE.z,h:3.2,r:0},{x:SHRINE.x-7.8,y:2.38,z:SHRINE.z,h:2.35,r:0},{x:SHRINE.x+7.8,y:2.38,z:SHRINE.z,h:2.35,r:0},...PLAZA_COLUMNS.map(p=>({...p,y:8.4,h:2.5,r:0})),{x:0,y:8.2,z:19.07,h:2.1,r:0},{x:0,y:12.65,z:19.15,h:4.2,r:0}]){
   const lod=new T.LOD();lod.addLevel(high.clone(true),0);lod.addLevel(small.clone(true),28);lod.position.set(a.x,a.y,a.z);lod.scale.setScalar(a.h);lod.rotation.y=a.r;lod.name='Đức Mẹ và Hài Nhi — SMK KAS225, CC0';root.add(lod);statues.push(lod);
  }
  const humans=new T.Group();root.add(humans);
