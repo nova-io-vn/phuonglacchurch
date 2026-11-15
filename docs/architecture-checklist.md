@@ -1,25 +1,16 @@
-﻿# Checklist bản dựng Phương Lạc
+﻿# Checklist hiện hành — bản 3
 
-Đối chiếu bằng mắt với phối cảnh trong hội thoại, không có bản vẽ khảo sát để định lượng độ giống.
+- Tên công trình và tác giả Dinh Quoc Bao hiển thị.
+- Ba tháp mái vòm; mái cao/thấp, gable, phào và khung cửa có chiều sâu.
+- Thân 54 m, thêm hai nhịp; không kéo giãn tháp hay người.
+- Chín cụm cầu thang tám bậc, đá mũi bậc, tay vịn và đèn.
+- Đài Đức Mẹ cuối nhà thờ, tượng ở sân/mặt tiền từ scan có nguồn.
+- Người đầy đủ mesh/skeleton/chi tiết mặt và chi thể; geometry đo được 1,70 m.
+- Sông/kênh, cầu, ao; bờ ruộng không đè lên mặt nước.
+- Bốn dãy ghế, ca đoàn trái, sàn khảm, hậu tòa và đèn pha lê.
+- Không còn nút Đi dạo/WASD/khóa chuột; sáu điểm Không gian nhà thờ kéo nhìn và zoom FOV.
+- Tour 10 điểm, sáng/tối, PNG, bản đồ, tablet/portrait.
 
-| Hạng mục | Kết quả |
-|---|---|
-| Nhận diện | Đúng tên Nhà thờ Giáo xứ Phương Lạc |
-| Ba tháp | Mái vòm, phân tầng, lam thông gió, hốc và thánh giá; không lấy tháp nhọn ảnh đêm |
-| Thân nhà | Gian giữa cao, mái hành lang thấp, dải cửa tầng trên |
-| Mặt tiền | Ba cửa nhọn, giữa cao hơn; phào/lan can/hốc tượng |
-| Khối ngang | Hai cánh thật, cửa sổ và đầu hồi, mái giao có valley |
-| Nội thất | Bốn dãy ghế, lối giữa/lối phụ, cột và rib, cung thánh |
-| Ca đoàn | Cánh trái nhìn từ cửa về bàn thờ, có đàn và giá nhạc |
-| Liên tục | Từ sân qua cửa vào gian giữa và hai cánh, không đổi scene |
-| Cảnh quan | Tương quan đường/trường/nhà/ao/ruộng theo Maps; chi tiết là ước lượng |
-| Buổi sáng | Nắng ấm, bóng, trời/mây, nước động và chim |
-| Buổi tối | Nền tối, đèn ấm/viền/emissive, bloom tiết chế |
-| Đi bộ | Tường/cột/ghế/cánh cửa/ao/rào có collider; các cao độ sàn được cập nhật |
-| Tablet/portrait | Touch, camera fit, toolbar không vượt viewport |
+Ảnh mới: 18 đài Đức Mẹ; 19 sông/ao; 20 mặt bên ban đêm; 21 production interior; 22 production shrine; 23 shrine night. 01–17 là góc tổng thể và kiểm tra chức năng. Mọi kết quả máy đọc được ở verification.json và production-verification.json.
 
-## Ảnh kiểm tra
-
-01 toàn cảnh sáng; 02 mặt tiền; 03/04 hai bên; 05 trên cao; 06 phía sau; 07 buổi tối; 08 gian giữa; 09 minimap; 10 cung thánh; 11 PNG xuất; 12/13 tablet/portrait; 14 production; 15 bốn dãy ghế; 16 ca đoàn trái; 17 khu vực với cảnh quan. maps-context là screenshot tài liệu từ Google Maps, không đưa vào scene.
-
-00-massing là review vật liệu trung tính của mô hình tích hợp. Các ảnh này không thay thế ảnh gốc hoặc hồ sơ kiến trúc; hốc tượng vẫn để trống có chú thích.
+Đối chiếu hình dáng từ phối cảnh, chưa có số đo khảo sát. Vị trí và mẫu đài/tuyến nước là tái dựng ước định có ghi rõ, không khẳng định là quét hiện trạng.

@@ -22,7 +22,7 @@ export const mat={
  archLight:new T.MeshStandardMaterial({color:'#e8dbbc',emissive:'#ffd095',emissiveIntensity:.02,roughness:.8}),
  stone:new T.MeshStandardMaterial({color:'#96978e',...texture('stone',1),roughness:.94}),
  pavement:new T.MeshStandardMaterial({color:'#d4cbb8',...texture('stone',18),roughness:.98}),
- floor:new T.MeshStandardMaterial({color:'#e0d6bf',...texture('stone',8),roughness:.65}),
+ floor:new T.MeshPhysicalMaterial({color:'#f4efe2',...texture('stone',12),roughness:.26,metalness:.04,clearcoat:.55,clearcoatRoughness:.2}),
  red:new T.MeshStandardMaterial({color:'#ba654b',...texture('tile',5),roughness:.84,side:T.DoubleSide}),
  wood:new T.MeshStandardMaterial({color:'#79543a',...texture('wood',1),roughness:.65}),
  bronze:new T.MeshStandardMaterial({color:'#9c8050',metalness:.72,roughness:.4}),
@@ -34,4 +34,4 @@ export const mat={
  glass:['#295f77','#a75239','#c29d48','#527a70','#725b8c'].map(color=>new T.MeshStandardMaterial({color,emissive:color,emissiveIntensity:.35,metalness:.22,roughness:.3,side:T.DoubleSide})),
 };
 mat.glass.forEach(m=>m.userData.transmitsLight=true);
-export function setGlassNight(night:boolean){mat.glass.forEach(m=>m.emissiveIntensity=night?.7:.16);mat.glow.emissiveIntensity=night?2:.2;mat.archLight.emissiveIntensity=night?1.4:.02;}
+export function setGlassNight(night:boolean){mat.glass.forEach(m=>m.emissiveIntensity=night?1.2:.16);mat.glow.emissiveIntensity=night?3:.2;mat.archLight.emissiveIntensity=night?3.5:.02;}

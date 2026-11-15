@@ -1,10 +1,6 @@
-﻿# Nhà thờ Giáo xứ Phương Lạc — Tham quan 3D
+﻿# Nhà thờ Giáo xứ Phương Lạc
 
-Vite + TypeScript + Three.js, vanilla HTML/CSS, không React, backend, API key hoặc model trả phí. Toàn bộ kiến trúc, vật liệu và cảnh quan sinh tại máy. Cảnh vẫn chạy khi không có mạng sau khi tải ứng dụng.
-
-## Chạy dự án
-
-Node.js 22.12+.
+**Tác giả: Dinh Quoc Bao.** Trải nghiệm 3D bằng Vite, TypeScript và Three.js, không React/backend/API key.
 
 ```sh
 npm install
@@ -13,45 +9,42 @@ npm run build
 npm run preview
 ```
 
-Dev mặc định http://localhost:5173; preview mặc định http://localhost:4173. `dist/` dùng trên static hosting. Bundle Three.js có cảnh báo >500 KB trước gzip; build vẫn thành công.
+Node 22.12+. Dev: http://localhost:5173. Production preview: http://localhost:4173. Thư mục `dist/` có thể đưa lên static hosting.
 
-## Bản hiệu chỉnh Phương Lạc
+## Bản hiện tại
 
-- Đúng tên Nhà thờ Giáo xứ Phương Lạc trong tiêu đề, thương hiệu và ảnh xuất.
-- Kiến trúc theo các phối cảnh vàng trong hội thoại: ba tháp mái vòm, thân basilica cao/thấp, cửa tầng trên, phào/lan can và hai cánh ngang thông với gian chính. Ảnh đêm tháp nhọn chỉ tham khảo ánh sáng.
-- Bốn dãy ghế dọc × 10 băng. Ca đoàn ở cánh trái (-X khi nhìn từ cửa về cung thánh), có ghế, organ và giá nhạc; cánh phải là không gian cầu nguyện.
-- Nút Buổi sáng / Buổi tối; nắng ấm, bóng đổ, bầu trời/mây chuyển động, đèn kiến trúc, glow và bloom nhẹ buổi tối.
-- Bối cảnh theo ghim Maps: đường Phương Lạc, trường đối diện, nhà phụ/nhà dân, ao nước và ruộng. Không nhúng ảnh vệ tinh trong 3D, không gọi Maps API khi chạy.
-- Đi bộ, va chạm, cửa tương tác, bản đồ bốn dãy ghế và hai cánh, tour 10 điểm có ca đoàn, chụp PNG, hỗ trợ cảm ứng.
+- Thân dài 54 m theo tỷ lệ mô phỏng, thêm nhịp kiến trúc thay vì kéo giãn hình học cửa/tháp.
+- Bệ 1,35 m; chín cụm cầu thang tám bậc, tay vịn, đèn viền. Cửa bên và phía sau là lỗ mở thực với cánh cửa.
+- Đài Đức Mẹ phía cuối, hai bệ tượng ở sân, tượng ở mặt tiền. Dùng GLB từ bản quét SMK có giấy phép, không phải người hình học thô.
+- Nhân vật có mặt/mắt/tay/chân và skeleton, cao 1,70 m đo trên geometry. Có nút ẩn/hiện.
+- Sông/kênh, cầu, các ao và mặt nước động; các nhóm trường/nhà/ruộng tham khảo quan hệ trên Google Maps.
+- Bốn dãy ghế dọc, mỗi dãy 16 băng; ca đoàn bên trái. Sàn đá khảm, viền vàng, hậu tòa và đèn chùm pha lê.
+- Buổi sáng/buổi tối, tăng chiếu sáng kiến trúc ban đêm theo ảnh tham khảo.
 
-## Điều khiển
+## Điều khiển mới
 
-Toàn cảnh: kéo xoay, cuộn zoom, chuột phải pan; chọn Mặt tiền / Mặt trái / Mặt phải / Trên cao / Khu vực. Nút Ca đoàn dẫn camera theo lộ trình tour vào cánh trái.
+**Toàn cảnh:** kéo xoay, cuộn zoom, chuột phải pan. Các nút mặt tiền, mặt bên, trên cao, đài Đức Mẹ, sông/ao và khu vực.
 
-Đi dạo: nhấp vào không gian để khóa chuột; WASD/phím mũi tên, Shift đi nhanh, E mở cửa gần, ESC thả chuột, M bản đồ, F toàn màn hình. Cửa chính dẫn thật vào cùng scene, không chuyển cảnh giả. Trên tablet: cần trái di chuyển, kéo viewer nhìn quanh, nút Mở cửa tương tác.
+**Không gian nhà thờ:** thay hoàn toàn chế độ Đi dạo. Sáu điểm xem: toàn gian, tầm mắt 1,70 m, cung thánh, ca đoàn, cánh cầu nguyện, vòm/đèn chùm. Kéo để nhìn quanh; cuộn hoặc chụm hai ngón để đổi góc nhìn. Không khóa chuột, không WASD. Camera vẫn di chuyển trong cùng scene.
 
-## Module chính
-
-- `architecture/BasilicaExterior.ts`, `TranseptBuilder.ts`, `RoofBuilder.ts`: tường có lỗ thật, hai cánh và mái giao nhau có đường thung.
-- `architecture/MainTower.ts`: tầng tháp, hốc/lam gió, vòm Lathe, gân, thánh giá.
-- `architecture/PewBuilder.ts`, `ChoirBuilder.ts`, `InteriorBuilder.ts`: bốn dãy ghế, ca đoàn và cung thánh.
-- `environment/ParishSite.ts`: tọa độ nguồn Maps, đường, trường, nhà dân, ao, ruộng; `Life.ts`: mặt nước/chim động.
-- `environment/Lighting.ts`, `Sky.ts`: hai thời điểm, ánh sáng, mây/trăng/sao; `materials/palette.ts`: base color/normal/AO procedural.
-- `controls/`: Orbit, PointerLock/touch, collision capsule XZ + cao độ, GuidedTour.
-- Geometry tĩnh batch theo vật liệu; cây dùng InstancedMesh, bóng tĩnh được cache; Bloom chạy khi buổi tối. Camera và collider có tính tới cánh ngang.
+**Tour:** 10 điểm, trước/sau, tạm dừng/tiếp tục, thoát. F toàn màn hình, M mặt bằng, ESC về toàn cảnh. Nhấp cánh cửa để tương tác khi xem tự do. Máy ảnh xuất PNG có tên tác giả trong filename.
 
 ## Kiểm tra
 
-Cần Chrome và dev server đang chạy:
+Cần Chrome đã cài và dev server đang chạy:
 
 ```sh
 npm test
+# Preview đang chạy ở 4173:
+node tests/production.mjs
 ```
 
-Kết quả trong `docs/verification.json`, ảnh trong `docs/screenshots/`. Kiểm tra gồm: đúng tên/toạ độ ghim, 40 băng trong bốn dãy, hai nút thời điểm, WASD/khóa chuột/E, lối đi/collision, lối vào ca đoàn và cao độ sàn, 10 điểm tour, PNG, tablet/portrait, Console và HTTP. `node tests/production.mjs` kiểm tra bản preview ở cổng 4173.
+Kết quả: docs/verification.json và docs/production-verification.json. Screenshot trong docs/screenshots/. Các kiểm tra mới xác nhận Walk đã bỏ, Space hoạt động bằng kéo nhìn, sáu điểm nội thất, 10 điểm tour, geometry người 1,70 m, chín cầu thang, mô hình tượng, ghi tác giả, tablet/portrait, PNG, Console và asset HTTP.
 
-## Nguồn và độ chính xác
+Static geometry batch theo vật liệu, cây dùng InstancedMesh, tượng dùng LOD, shadow cache và giới hạn DPR/đèn. Mô hình chi tiết hơn làm draw calls cao hơn bản trước; kiểm tra hiện tại dưới budget 300 calls/frame được ghi, không cam kết FPS cho mọi GPU. Three.js chunk >500 KB không nén là cảnh báo build, không phải lỗi.
 
-[Phân tích phối cảnh](docs/reference-analysis.md) · [Bối cảnh Maps](docs/site-context.md) · [Giả định](docs/assumptions.md) · [Tiến độ](docs/progress.md).
+## Tài liệu và nguồn
 
-Đã có ảnh trong hội thoại; tệp ảnh gốc chưa nằm trên đĩa. Kích thước là ước lượng. Hình học nhà thờ bám các phối cảnh vàng, không phải mô hình khảo sát. Nội thất theo chỉ dẫn, chi tiết nhà lân cận/cảnh quan là tái dựng từ quan hệ vị trí trên vệ tinh. Hốc tượng chưa có asset hợp pháp nên để trống. Không có GI bake, ray tracing hay khúc xạ kính thực; dùng ánh sáng cục bộ, environment và emissive.
+[Hiệu chỉnh mới nhất](docs/revision-3.md) · [Phân tích ảnh](docs/reference-analysis.md) · [Giả định](docs/assumptions.md) · [Nguồn mô hình](public/models/CREDITS.md).
+
+Kích thước, vị trí đài và đường sông/kênh vẫn là thiết kế ước định, chưa có bản vẽ khảo sát. Tượng dùng mẫu Đức Mẹ và Hài Nhi của SMK, không khẳng định là tượng tại Phương Lạc. Nhân vật Quaternius CC0 chỉ làm mốc tỷ lệ. Toàn bộ asset được lưu cục bộ, không gọi dịch vụ mô hình bên ngoài khi chạy.

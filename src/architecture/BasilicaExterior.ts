@@ -1,6 +1,6 @@
 import * as T from 'three';
 import {mat} from '../materials/palette';
-import {box,column,cross,curve,panel,ring} from '../utils/geometry';
+import {box,column,cross,curve,extrude,mesh,panel,ring} from '../utils/geometry';
 import {BAYS} from './config';
 import {windows} from './GothicWindow';
 import {basilicaRoof,gable,roof} from './RoofBuilder';
@@ -50,6 +50,8 @@ export function basilicaExterior(root:T.Group,col:Collision){
  const rearWindow=windows.create(2.7,5);rearWindow.position.set(0,1.4,.3);rear.add(rearWindow);
  const rearUpper=new T.Group();rearUpper.position.set(0,9.4,-36.5);root.add(rearUpper);panel(rearUpper,mat.wall,12,9.2,.65,[{x:0,y:1.2,w:3,h:6.3}]);const rw=windows.create(3,6.3);rw.position.set(0,1.2,.3);rearUpper.add(rw);col.add(0,-36.2,22,.9,'apse wall');
  gable(root,12,18.6,22.3,-36.5);gable(root,12,18.6,22.3,11.8);box(root,mat.wall,0,14.6,12.05,12,7.6,.5);
+ // Close the sloping aisle end walls, leaving no view through the roof from the rear.
+ for(const z of [-36.5,11.8])for(const side of [-1,1]){const s=new T.Shape();s.moveTo(side*6,9.4);s.lineTo(side*11.9,9.4);s.lineTo(side*6,13.35);s.closePath();mesh(extrude(s,.65),mat.wall,root,0,0,z);}
  for(const side of [-1,1])curve(root,mat.ivory,[new T.Vector3(side*6,18.6,-36.65),new T.Vector3(0,22.3,-36.65)],.1);
  basilicaRoof(root);roof(root,22.6,6,10.9,13.2,15);
 }

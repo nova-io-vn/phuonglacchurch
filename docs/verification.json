@@ -1,105 +1,105 @@
 {
-  "date": "2026-11-15T05:48:31.938Z",
+  "date": "2026-11-15T06:23:13.520Z",
   "base": "http://localhost:5173",
   "checks": [
     {
-      "name": "Canvas fills viewport",
+      "name": "Correct parish identity",
       "pass": true
     },
     {
-      "name": "Parish identity is Phương Lạc",
+      "name": "Author credit is visible",
       "pass": true
     },
     {
-      "name": "Four blocks of ten congregation benches",
+      "name": "Walk mode removed from UI",
       "pass": true
     },
     {
-      "name": "Map coordinates match supplied pin",
+      "name": "Church space replaces walk mode",
       "pass": true
     },
     {
-      "name": "Evening button sets lit night scene",
+      "name": "Revised nave is 54 m long with 9 bays",
       "pass": true
     },
     {
-      "name": "Morning button restores daylight",
+      "name": "Four longitudinal pew blocks",
       "pass": true
     },
     {
-      "name": "Pointer lock works",
+      "name": "Nine full stair flights with 8 treads each",
       "pass": true
     },
     {
-      "name": "W moves first-person camera",
+      "name": "Detailed sculpture models loaded",
       "pass": true
     },
     {
-      "name": "E opens actual hinged center door",
+      "name": "Three actual human meshes loaded",
       "pass": true
     },
     {
-      "name": "Unbroken entry route reaches sanctuary steps",
+      "name": "Human geometry measures 1.70 m",
       "pass": true
     },
     {
-      "name": "Side wall blocks walking",
+      "name": "Rear shrine is a dedicated viewpoint",
       "pass": true
     },
     {
-      "name": "Pews block walking",
+      "name": "River and pond viewpoint exists",
       "pass": true
     },
     {
-      "name": "Columns block walking",
+      "name": "Evening mode",
       "pass": true
     },
     {
-      "name": "Rear wall blocks walking",
+      "name": "Morning mode",
       "pass": true
     },
     {
-      "name": "Stairs raise floor in discrete treads",
+      "name": "Space panel shown",
       "pass": true
     },
     {
-      "name": "Closed door blocks and open door clears center",
+      "name": "No pointer lock is requested",
       "pass": true
     },
     {
-      "name": "Left arm connects to nave without a wall",
+      "name": "All six interior stations reached",
       "pass": true
     },
     {
-      "name": "Choir is on raised left-arm floor",
+      "name": "Drag pans the interior view",
       "pass": true
     },
     {
-      "name": "All four side circulation routes stay clear",
+      "name": "WASD does not move the space camera",
       "pass": true
     },
     {
-      "name": "Pond water blocks walking and bridge has a floor",
+      "name": "Left choir is a dedicated space",
       "pass": true
     },
     {
-      "name": "M opens map",
+      "name": "M toggles updated floor plan",
       "pass": true
     },
     {
-      "name": "All ten guided stops reached",
+      "name": "All ten tour stops reached",
       "pass": true
     },
     {
-      "name": "Tour stays clear of side walls",
+      "name": "Tour stays clear of nave walls",
       "pass": true
     },
     {
-      "name": "Pause button changes tour state",
+      "name": "Tour pause works",
       "pass": true
     },
     {
-      "name": "Previous stop works",
+      "name": "Previous tour stop works",
       "pass": true
     },
     {
@@ -107,27 +107,31 @@
       "pass": true
     },
     {
-      "name": "PNG capture exports",
+      "name": "PNG export includes author in filename",
       "pass": true
     },
     {
-      "name": "Help opens an accessible dialog",
+      "name": "Scale figures can be hidden",
       "pass": true
     },
     {
-      "name": "Static batching stays under 100 submitted calls",
+      "name": "Credits and asset licences are disclosed",
       "pass": true
     },
     {
-      "name": "Tablet gets touch movement controls",
+      "name": "Rendering remains below 300 submitted calls",
       "pass": true
     },
     {
-      "name": "Responsive toolbar stays in viewport",
+      "name": "Tablet can enter Church Space",
       "pass": true
     },
     {
-      "name": "Mobile camera fits the architecture",
+      "name": "Mobile toolbar fits viewport",
+      "pass": true
+    },
+    {
+      "name": "Mobile author credit is visible",
       "pass": true
     },
     {
@@ -139,118 +143,125 @@
       "pass": true
     }
   ],
-  "collision": {
-    "entry": {
-      "x": 0,
-      "z": -16.99999999999977,
-      "y": 2.28
-    },
-    "wallX": 10.399999999999979,
-    "pewZ": 12.000000000000004,
-    "pillarZ": 14.799999999999992,
-    "rearZ": -23.40000000000002,
-    "stair": [
-      0,
-      0.15000000000000002,
-      0.3,
-      0.44999999999999996,
-      0.6,
-      0.6
-    ],
-    "closed": true,
-    "open": true,
-    "arm": {
-      "x": -10.000000000000007,
-      "z": -12.000000000000004
-    },
-    "choirFloor": 0.76,
-    "choirPews": 6,
-    "sideAisles": [
-      {
-        "x": -10,
-        "z": -6.700000000000014
-      },
-      {
-        "x": -6.15,
-        "z": -6.700000000000014
-      },
-      {
-        "x": 6.15,
-        "z": -6.700000000000014
-      },
-      {
-        "x": 10,
-        "z": -6.700000000000014
-      }
-    ]
-  },
-  "tourResult": [
+  "spaces": [
     {
-      "stop": 0,
+      "index": 0,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 0
+      "p": [
+        0,
+        4.4,
+        14
+      ],
+      "fov": 61.99999999999998
     },
     {
-      "stop": 1,
+      "index": 1,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "p": [
+        0,
+        3.05,
+        5
+      ],
+      "fov": 55.258182171808684
     },
     {
-      "stop": 2,
+      "index": 2,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "p": [
+        0,
+        3.65,
+        -26
+      ],
+      "fov": 55.00063996962034
     },
     {
-      "stop": 3,
+      "index": 3,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "p": [
+        -6.6,
+        3.7,
+        -20
+      ],
+      "fov": 56.99989968274616
     },
     {
-      "stop": 4,
+      "index": 4,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "p": [
+        6.6,
+        3.7,
+        -20
+      ],
+      "fov": 56.999999999993165
     },
     {
-      "stop": 5,
+      "index": 5,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "p": [
+        0,
+        4.5,
+        -10
+      ],
+      "fov": 60.99979930127178
+    }
+  ],
+  "routes": [
+    {
+      "index": 0,
+      "arrived": true,
+      "wall": false
     },
     {
-      "stop": 6,
+      "index": 1,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 0
+      "wall": false
     },
     {
-      "stop": 7,
+      "index": 2,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "wall": false
     },
     {
-      "stop": 8,
+      "index": 3,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 100
+      "wall": false
     },
     {
-      "stop": 9,
+      "index": 4,
       "arrived": true,
-      "insideWall": false,
-      "minDoorClearance": 0
+      "wall": false
+    },
+    {
+      "index": 5,
+      "arrived": true,
+      "wall": false
+    },
+    {
+      "index": 6,
+      "arrived": true,
+      "wall": false
+    },
+    {
+      "index": 7,
+      "arrived": true,
+      "wall": false
+    },
+    {
+      "index": 8,
+      "arrived": true,
+      "wall": false
+    },
+    {
+      "index": 9,
+      "arrived": true,
+      "wall": false
     }
   ],
   "stats": {
-    "calls": 83,
-    "triangles": 941200,
-    "geometries": 49,
-    "textures": 37
+    "calls": 228,
+    "triangles": 1261816,
+    "geometries": 91,
+    "textures": 46
   },
   "errors": [],
   "missing": []

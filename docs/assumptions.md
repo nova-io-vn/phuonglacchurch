@@ -1,25 +1,26 @@
-﻿# Giả định kích thước và thiết kế
+﻿# Giả định hiện hành — bản hiệu chỉnh 3
 
-**Không phải số đo khảo sát hoặc bản vẽ xây dựng.** Ảnh tham chiếu được chụp lại từ phối cảnh, chưa có bản vẽ kích thước đáng tin cậy.
+Tất cả kích thước sau là **tỷ lệ thiết kế mô phỏng**, không phải hồ sơ khảo sát/xây dựng.
 
-| Thành phần | Giá trị mô phỏng | Căn cứ |
-|---|---|---|
-| Thân chính | 22 × 42 m | Tỷ lệ tương đối từ phối cảnh, chưa đo thực |
-| Bệ sàn | +0.6 m | Giữ lối vào liên tục của ứng dụng |
-| Tường hành lang | 9.4 m cả nền | Sửa theo mái thấp trong phối cảnh |
-| Tường gian giữa / đỉnh mái | 18.6 / 22.5 m | Sửa phân cấp basilica |
-| Gian giữa | khoảng 12 m | Phù hợp hệ cột và hai lối bên |
-| Hai cánh ngang | x tới ±18.5 m, z từ -18 tới -6 | Người dùng yêu cầu hai cánh, phối cảnh có khối đầu hồi nhô |
-| Tháp giữa / tháp phụ | khoảng 39 / 26 m cả đỉnh | Giữ mái vòm cong, không dùng tháp nón ảnh đêm |
-| Tường | 0.65 m | Geometry có chiều dày và lỗ cửa thật |
-| Ghế giáo dân | 4 dãy × 10 băng, rộng mỗi băng 2.5 m | 4 dãy theo yêu cầu; số băng và kích thước là thiết kế |
-| Ca đoàn | cánh -X, 6 băng, đàn/giá nhạc; sàn +0.76 m | Vị trí theo yêu cầu; đồ đạc là mô phỏng |
-| Cánh phải | khu cầu nguyện | Thiết kế bổ sung phù hợp công năng |
-| Cung thánh | 3 cấp, sàn cao nhất +1.14 m | Thiết kế mô phỏng |
-| Cao mắt / bán kính người | 1.68 / 0.28 m | Điều khiển đi bộ |
-| Khu đất | khoảng 61 × 103 m | Ước lượng từ ảnh vệ tinh, chưa khảo sát |
-| Hướng mặt tiền | tây, ước lượng | Trục nền công trình trên ảnh vệ tinh |
+| Thành phần | Giá trị |
+|---|---|
+| Thân chính | 22 × 54 m, front z=18, back z=-36 |
+| Nhịp dọc | 9 nhịp × 6 m |
+| Sàn nhà thờ | +1,35 m |
+| Mái cao | khoảng +23,25 m kể cả nâng bệ |
+| Tường | dày 0,65 m |
+| Hai cánh ngang | z từ -30 tới -18; rộng tới x=±18,5 m |
+| Tháp giữa / phụ | khoảng 39,5 / 26,5 m |
+| Cầu thang | 9 cụm, 8 bậc/cụm; lên 1,35 m; chiếu dài 4 m |
+| Ghế giáo dân | 4 dãy × 16 băng, rộng 2,5 m/băng |
+| Ca đoàn | cánh -X, 6 băng + đàn/giá nhạc; sàn +1,51 m |
+| Đài Đức Mẹ | vị trí thiết kế (x=0,z=-53), phía cuối công trình |
+| Người tham chiếu | geometry được chuẩn hóa và kiểm tra cao 1,70 m |
+| Khuôn viên tái dựng | khoảng 61 × 123 m |
+| Tuyến sông/kênh | khoảng z=-83, uốn nhẹ theo X; vị trí/chiều rộng chưa khảo sát |
 
-Buổi sáng 07:30 và buổi tối 19:00 là hai preset nghệ thuật, không phải mô phỏng thiên văn chính xác theo ngày/kinh vĩ độ. Nhà dân, trường và nhà phụ được dựng bằng geometry ước lượng; không có dữ liệu mặt đứng hoặc cao độ thực. Mặt nước có normal động; chim chuyển động chỉ tạo bầu không khí, không mô tả hiện trạng khảo sát.
+Y hướng lên, +Z về sân trước; mặt tiền hướng tây là quy ước suy luận từ ảnh vệ tinh, chưa đo phương vị. Hai cánh được hiểu từ cửa chính nhìn về bàn thờ: trái là -X (ca đoàn), phải là +X (cầu nguyện).
 
-Nội thất vẫn ghi là mô phỏng trong UI. Hốc tượng trống chờ mô hình hợp pháp. Không có gác ca đoàn ở tiền sảnh nữa: ca đoàn đã chuyển sang cánh trái, đi vào bằng cùng sàn nhà thờ. Không có phòng hoặc cửa giả dẫn vào mô hình không tồn tại.
+Các kích thước 42 m, nền 0,60 m và 10 băng mỗi dãy của bản trước đã được thay. Tăng chiều dài bằng thêm nhịp, không co giãn cơ thể người/cửa/tháp. Chỉ số 1,70 m là đo mô hình người, không chứng minh kích thước nhà thờ ngoài thực địa đã đúng.
+
+Mẫu tượng là bản quét lịch sử SMK KAS225/CC0, không phải bản quét tượng ở giáo xứ. Nhà lân cận, đài, cảnh quan, nội thất và tuyến nước cần tài liệu thực địa để đối chiếu chính xác. Không coi ảnh AI đêm là bản vẽ kết cấu. Giữ mái vòm của phối cảnh vàng.

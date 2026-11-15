@@ -1,11 +1,12 @@
 {
   "productionURL": "http://localhost:4173",
   "checks": [
-    "Production loads",
-    "Production WASD movement",
-    "Production ESC unlock",
-    "Overview screenshot",
-    "Neutral massing review front and 3/4",
+    "Production GLB assets load",
+    "Author credit",
+    "Walk mode removed",
+    "Church Space works",
+    "Rear shrine viewpoint",
+    "Night postprocessing works",
     "No errors or missing assets"
   ],
   "errors": []

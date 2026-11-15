@@ -5,7 +5,7 @@ export class GothicWindowGenerator {
  create(w=2.5,h=6.5){
   const g=new T.Group();
   for(const side of [-1,1]){const z=side*.39;ring(g,mat.ivory,w,h,.13,z);ring(g,mat.stone,w+.32,h+.2,.1,z-side*.08);
-   box(g,mat.ivory,0,-.1,z,w+.6,.2,.45);
+   box(g,mat.ivory,0,-.1,z,w+.6,.2,.45);ring(g,mat.archLight,w+.35,h+.2,.025,z+side*.03);
   }
   mesh(new T.ShapeGeometry(arch(w-.12,h-.08),20),mat.glass[0],g,0,.04,0);
   // Real colored panes and raised leadwork, constrained to the pointed opening.

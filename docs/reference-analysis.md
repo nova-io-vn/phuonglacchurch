@@ -1,3 +1,5 @@
+> **Bản hiện hành:** xem [hiệu chỉnh 3](revision-3.md) và [giả định mới](assumptions.md). Các kích thước và cách điều khiển ở phần ghi chép lượt trước bên dưới là lịch sử, đã được thay trong bản 3.
+
 ﻿# Phân tích tham chiếu — Nhà thờ Giáo xứ Phương Lạc
 
 Cập nhật ngày 15/11/2026 sau khi người dùng cung cấp hình ảnh trong hội thoại và ghim Google Maps. Tình trạng “chưa có ảnh” của phiên bản Aurelia ban đầu không còn đúng với vòng hiệu chỉnh này. Tệp ảnh gốc chưa được lưu thành file trong public/references/, nhưng hình ảnh đã được quan sát trực tiếp trong hội thoại.
